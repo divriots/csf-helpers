@@ -1,10 +1,11 @@
 {
-  "name": "@components-studio/divriots.csf-helpers",
+  "name": "@divriots/csf-helpers",
   "version": "0.0.0",
   "scripts": {
     "serve": "npx cso-cli@latest serve ZDRAF9DebzEFyYzY4TAS --open"
   },
   "dependencies": {
+    "deepmerge": "^4.2.2",
     "@storybook/csf": "0.0.2--canary.87bc651.0"
   }
 }
