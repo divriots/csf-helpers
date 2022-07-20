@@ -1,4 +1,5 @@
 import type {
+  NormalizedProjectAnnotations,
   Story,
   StoryDefault,
   StoryObj,
@@ -11,7 +12,8 @@ export function initStory(
   storyFn: StoryObj,
   key: string,
   moduleDef: StoryDefault,
-  storyPath?: string
+  storyPath?: string,
+  projectAnnotations: NormalizedProjectAnnotations = {}
 ): Story {
   const normalizedCmp = normalizeComponentAnnotations(
     moduleDef,
@@ -20,6 +22,6 @@ export function initStory(
   );
   const normalized = normalizeStory(key, storyFn, normalizedCmp);
 
-  return prepareStory(normalized, normalizedCmp, {});
+  return prepareStory(normalized, normalizedCmp, projectAnnotations);
 }
 
