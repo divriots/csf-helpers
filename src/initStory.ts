@@ -11,7 +11,7 @@ import { prepareStory } from './prepareStory';
 export function initStory(
   storyFn: StoryObj,
   key: string,
-  moduleDef: StoryDefault,
+  moduleDef: StoryDefault = {},
   storyPath?: string,
   projectAnnotations: NormalizedProjectAnnotations = {}
 ): Story {
