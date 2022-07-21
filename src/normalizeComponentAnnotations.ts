@@ -11,7 +11,7 @@ import {
 
 export function normalizeComponentAnnotations<TFramework extends AnyFramework>(
   defaultExport: StoryDefault<TFramework>,
-  title: string = defaultExport.title!,
+  title: string,
   importPath?: string
 ): NormalizedComponentAnnotations<TFramework> {
   const { id, argTypes, ...rest } = defaultExport;

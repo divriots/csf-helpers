@@ -4,5 +4,5 @@ export { prepareStory } from './prepareStory';
 export { getStories } from './getStories';
 export { getStoryLabel } from './getStoryLabel';
 export { initStory } from './initStory';
-export { initStoryForRender } from './initStoryForRender';
+export { initStoryContext } from './initStoryContext';
 export * from './storybook-extra-types';

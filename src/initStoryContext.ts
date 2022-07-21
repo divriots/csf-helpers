@@ -8,14 +8,14 @@ import type {
   Story,
 } from './storybook-extra-types';
 
-export async function initStoryForRender(
-  canvasElement: HTMLElement,
+export async function initStoryContext(
   story: Story,
+  canvasElement: HTMLElement,
   viewMode: ViewMode,
   abortSignal?: AbortSignal,
   queryArgs?: Args
-): Promise<{ storyFn: () => any; storyContext: StoryContext; story: Story }> {
-  const { applyLoaders, unboundStoryFn } = story;
+): Promise<StoryContext> {
+  const { applyLoaders } = story;
 
   const args = {
     ...story.initialArgs,
@@ -35,7 +35,7 @@ export async function initStoryForRender(
   } as StoryContextForLoaders);
   if (abortSignal?.aborted) return {} as any;
 
-  const storyContext: StoryContext = {
+  return {
     ...loadedContext,
     // By this stage, it is possible that new args/globals have been received for this story
     // and we need to ensure we render it with the new values
@@ -43,10 +43,5 @@ export async function initStoryForRender(
     // @ts-ignore undefined in docs
     abortSignal,
     canvasElement,
-  };
-  return {
-    story,
-    storyContext,
-    storyFn: () => unboundStoryFn(storyContext),
   };
 }
