@@ -3,8 +3,9 @@ import chai from "chai/chai.js";
 const expect = chai.expect;
 
 describe("autoTitle", function() {
-  // TODO
-  // it("should contains only one W", function() {
-  //   expect(hello_world()["w"]).to.equal(1);
-  // });
+  it("should auto title paths", function() {
+    expect(autoTitle('../button/src/index.stories.tsx')).to.equal('button');
+    expect(autoTitle('../../button/button.stories.tsx')).to.equal('button');
+    expect(autoTitle('/button/stories/index.stories.tsx')).to.equal('button');
+  });
 });
