@@ -7,6 +7,7 @@ import type {
 import { normalizeStory } from './normalizeStory';
 import { normalizeComponentAnnotations } from './normalizeComponentAnnotations';
 import { prepareStory } from './prepareStory';
+import { autoTitle } from './autoTitle';
 
 export function initStory(
   storyFn: StoryObj,
@@ -17,7 +18,7 @@ export function initStory(
 ): Story {
   const normalizedCmp = normalizeComponentAnnotations(
     moduleDef,
-    moduleDef.title || 'Stories',
+    moduleDef.title || autoTitle(storyPath) || 'Stories',
     storyPath
   );
   const normalized = normalizeStory(key, storyFn, normalizedCmp);
