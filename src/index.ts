@@ -6,4 +6,5 @@ export { getStoryLabel } from './getStoryLabel';
 export { initStory } from './initStory';
 export { initStoryContext } from './initStoryContext';
 export { autoTitle } from './autoTitle';
+export { renderStory } from './renderStory';
 export * from './storybook-extra-types';
