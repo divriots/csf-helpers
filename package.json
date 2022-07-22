@@ -4,6 +4,9 @@
   "scripts": {
     "serve": "npx cso-cli@latest serve ZDRAF9DebzEFyYzY4TAS --open"
   },
+  "devDependencies": {
+    "chai": "^4.3.6"
+  },
   "dependencies": {
     "deepmerge": "^4.2.2",
     "@storybook/csf": "0.0.2--canary.87bc651.0"
