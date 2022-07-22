@@ -167,6 +167,11 @@ export function prepareStory<TFramework extends AnyFramework>(
   };
   const playFunction = storyAnnotations.play;
 
+  const renderToDOM =
+    storyAnnotations.renderToDOM ||
+    componentAnnotations.renderToDOM ||
+    projectAnnotations.renderToDOM;
+
   // @ts-ignore
   return Object.freeze({
     ...contextForEnhancers,
@@ -175,5 +180,6 @@ export function prepareStory<TFramework extends AnyFramework>(
     unboundStoryFn,
     applyLoaders,
     playFunction,
+    renderToDOM
   });
 }
