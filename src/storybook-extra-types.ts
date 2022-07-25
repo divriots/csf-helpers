@@ -76,3 +76,8 @@ export type Story<TFramework extends AnyFramework = AnyFramework> =
     ) => Promise<StoryContext<TFramework>>;
     playFunction: (context: StoryContext<TFramework>) => Promise<void> | void;
   };
+
+export type CSFFile<TFramework extends AnyFramework = AnyFramework> = {
+  meta: NormalizedComponentAnnotations<TFramework>;
+  stories: NormalizedStoryAnnotations<TFramework>[];
+};
