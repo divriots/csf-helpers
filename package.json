@@ -1,6 +1,6 @@
 {
   "name": "@divriots/csf-helpers",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "scripts": {
     "serve": "npx cso-cli@latest serve ZDRAF9DebzEFyYzY4TAS --open"
   },
