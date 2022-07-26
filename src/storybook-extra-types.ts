@@ -16,6 +16,8 @@ import type {
   StoryId,
   ComponentId,
   ComponentAnnotations,
+  PartialStoryFn,
+  StoryIdentifier
 } from '@storybook/csf';
 
 export type BaseStoryMetadata = BaseAnnotations & {
@@ -81,3 +83,23 @@ export type CSFFile<TFramework extends AnyFramework = AnyFramework> = {
   meta: NormalizedComponentAnnotations<TFramework>;
   stories: NormalizedStoryAnnotations<TFramework>[];
 };
+
+export type BoundStory<TFramework extends AnyFramework = AnyFramework> = Story<TFramework> & {
+  storyFn: PartialStoryFn<TFramework>;
+};
+
+type MaybePromise<T> = Promise<T> | T;
+
+export type TeardownRenderToDOM = () => MaybePromise<void>;
+export type RenderToDOM<TFramework extends AnyFramework> = (
+  context: RenderContext<TFramework>,
+  element: Element
+) => MaybePromise<void | TeardownRenderToDOM>;
+
+export declare type RenderContext<TFramework extends AnyFramework = AnyFramework> =
+  StoryIdentifier & {
+    storyContext: StoryContext<TFramework>;
+    storyFn: PartialStoryFn<TFramework>;
+    unboundStoryFn: LegacyStoryFn<TFramework>;
+  };
+
