@@ -1,6 +1,7 @@
 # CSF helpers [![npm Version](https://img.shields.io/npm/v/@divriots/csf-helpers?cacheSeconds=1800)](https://npmjs.com/package/divriots/csf-helpers)
 
 This is a collection of helper functions to manipulate, combine and resolve CSF stories.
+Some helpers were extracted from storybook store, with modifications to work standalone.
 
 ## Table of Contents
 
