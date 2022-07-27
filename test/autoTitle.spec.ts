@@ -7,5 +7,6 @@ describe("autoTitle", function() {
     expect(autoTitle('../button/src/index.stories.tsx')).to.equal('button');
     expect(autoTitle('../../button/button.stories.tsx')).to.equal('button');
     expect(autoTitle('/button/stories/index.stories.tsx')).to.equal('button');
+    expect(autoTitle('./stories/index.stories.tsx')).to.equal('');
   });
 });
