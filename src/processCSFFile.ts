@@ -1,5 +1,6 @@
 import type {
-  CSFFile
+  CSFFile,
+  StoryDefault
 } from './storybook-extra-types';
 import { normalizeStory } from './normalizeStory';
 import { normalizeComponentAnnotations } from './normalizeComponentAnnotations';
@@ -12,9 +13,10 @@ export function processCSFFile(
   importPath: string,
   title?: string
 ): CSFFile {
+  const moduleDefault = (moduleExports.default || {}) as StoryDefault;
   const meta = normalizeComponentAnnotations(
-    moduleExports.default,
-    title || moduleExports.default.title || autoTitle(importPath) || 'Stories',
+    moduleDefault,
+    title || moduleDefault.title || autoTitle(importPath) || 'Stories',
     importPath
   );
 
