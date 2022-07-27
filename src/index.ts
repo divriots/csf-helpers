@@ -10,4 +10,5 @@ export { autoTitle } from './autoTitle';
 export { renderStory } from './renderStory';
 export { setupGlobals } from './setupGlobals';
 export { processCSFFile } from './processCSFFile';
+export { getStoryStore } from './getStoryStore'
 export * from './storybook-extra-types';
