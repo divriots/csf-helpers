@@ -15,7 +15,7 @@ $ npm install --save @divriots/csf-helpers
 ```
 
 ```javascript
-import { processCSFFile } from "@divriots/csf-helpers";
+import { ... } from "@divriots/csf-helpers";
 ```
 
 ## Usage
