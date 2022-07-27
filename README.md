@@ -1,6 +1,6 @@
-# Template ES Module
+# CSF helpers
 
-This is a template for creating ES Module
+This is a collection of helper functions to manipulate, combine and resolve CSF stories.
 
 ## Table of Contents
 
@@ -9,30 +9,44 @@ This is a template for creating ES Module
 
 ## Install
 
-This project uses [npm](https://npmjs.com). Go check them out if you don't have them locally installed.
 
 ```sh
-$ npm install --save template-module-ts
+$ npm install --save @divriots/csf-helpers
 ```
 
 ```javascript
-// using ES6 modules
-import { countLetter } from "@wcd/template-module-ts";
-```
-
-or
-
-```html
-<script type="module" src="https://unpkg.com/@wcd/template-module-ts"></script>
+import { processCSFFile } from "@divriots/csf-helpers";
 ```
 
 ## Usage
 
 ```js
-import { countLetter } from "@wcd/template-module-ts";
+import {
+  normalizeProjectAnnotations,
+  processCSFFile,
+  prepareStory,
+  renderStory
+} from "@divriots/csf-helpers";
 
-const hello_world_count = countLetter("Hello world");
+// normalizes project annotations (render, renderToDOM, globals, parameters ...)
+const projectAnnotations = normalizeProjectAnnotations({
+  parameters: {
+    layout: 'centered'
+  }
+});
 
-// get count of a particular letter
-hello_world_count["w"];
-```
+const module = await import('./stories.js')
+
+// returns normalized component annotations, plus list of (normalized)
+//  stories in the given module
+const { meta, stories } = processCSFFile(module, './stories.js');
+
+// prepares story for rendering, binds decorators, loaders, renderers
+const prepared = prepareStory(stories[0], meta, projectAnnotations);
+
+// renders story in given DOM element, returns dispose function to unmount
+const dispose = await renderStory(
+  prepared,
+  document.getElementById('root')
+)
+
