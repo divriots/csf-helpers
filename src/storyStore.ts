@@ -41,6 +41,11 @@ export class StoryStore {
     this._stories[file] = moduleImport;
     this._target.dispatchEvent(new StoryFileEvent(file, moduleImport, this.projectAnnotations));
   }
+  loadModules(modules: Record<string, () => Promise<any>>): void {
+    Object.entries(modules).forEach(([file, moduleImport]) => {
+      this.load(file, moduleImport);
+    })
+  }
   async cacheAllCSFFiles(): Promise<void> {
     this.cachedCSFFiles = Object.fromEntries(await Promise.all(
       Object.entries(this._stories).map(async ([file, moduleImport]) =>
