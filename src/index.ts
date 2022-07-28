@@ -8,7 +8,6 @@ export { initStory } from './initStory';
 export { initStoryContext } from './initStoryContext';
 export { autoTitle } from './autoTitle';
 export { renderStory } from './renderStory';
-export { setupGlobals } from './setupGlobals';
 export { processCSFFile } from './processCSFFile';
 export { getStoryStore } from './getStoryStore'
 export * from './storyStore';
