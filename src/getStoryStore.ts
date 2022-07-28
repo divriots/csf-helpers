@@ -19,6 +19,10 @@ export class StoryStore extends EventTarget {
     this.projectAnnotations = normalizeProjectAnnotations(projectAnnotations);
   }
 
+  getStoryFiles(): Record<string, () => Promise<any>> {
+    return this._stories;
+  }
+
   load(file: string, moduleImport: () => Promise<any>): void {
     this._stories[file] = moduleImport;
     this.dispatchEvent(new StoryFileEvent(file, moduleImport, this.projectAnnotations));
