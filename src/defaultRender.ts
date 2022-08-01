@@ -14,6 +14,7 @@ export function render(args, { id, component }: StoryContext)  {
         // basic attribute/property inference
         if (key in ret) {
           ret[key] = value;
+          continue;
         }
         if (typeof value === 'undefined' || value === false) {
           value = null;
