@@ -1,6 +1,7 @@
 {
   "name": "@divriots/csf-helpers",
   "version": "0.1.2",
+  "license": "MIT",
   "scripts": {
     "serve": "npx cso-cli@latest serve ZDRAF9DebzEFyYzY4TAS --open"
   },
