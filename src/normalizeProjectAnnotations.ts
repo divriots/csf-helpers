@@ -1,6 +1,7 @@
 import type { AnyFramework, ProjectAnnotations } from '@storybook/csf';
 import type { NormalizedProjectAnnotations } from './storybook-extra-types';
 import { normalizeInputTypes } from './normalizeInputTypes';
+import * as defaultRender from './defaultRender';
 
 export function normalizeProjectAnnotations<TFramework extends AnyFramework>({
   argTypes,
@@ -14,6 +15,7 @@ export function normalizeProjectAnnotations<TFramework extends AnyFramework>({
     argTypesEnhancers: [
       ...(argTypesEnhancers || []),
     ],
+    ...defaultRender,
     ...annotations,
   };
 
